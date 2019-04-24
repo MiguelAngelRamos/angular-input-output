@@ -1,20 +1,22 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<h4>Propiedades input en Angular</h4>
+<!-- <app-hijo 
+[propiedad_uno]="'Valor de la propiedad uno'"
+[propiedad_dos]="'Valor de la propiedad dos'"
+>
+</app-hijo> -->
+<app-hijo
+[propiedad_uno]="dato_externo"
+[propiedad_dos]="identity"
+(desde_el_hijo)="recibirDatos($event)"
+></app-hijo>
+<hr />
 
+<!-- Los corches  contienen los nombres de las propiedades que existen en el componente hijo de esta manera hago referencia a los @Input() propiedad_uno:string y @input() propiedad_dos que existen en el hijo, luego le envio un string.
+   De manera que se cumple el envio desde el Padre hacia el hijo  -->
+<!-- 
+   con los parentesis () recibo los datos del hijo y hago referencia a la funcion que existe en el componente padre (desde_el_hijo)="recibirDatos($event)" -->
+<div *ngIf="datos_del_hijo">
+  <h1>{{datos_del_hijo.nombre}}</h1>
+  <h1>{{datos_del_hijo.web}}</h1>
+  <h1>{{datos_del_hijo.twitter}}</h1>
+</div>
